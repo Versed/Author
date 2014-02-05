@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('versedApp', [
+angular.module('versed', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
