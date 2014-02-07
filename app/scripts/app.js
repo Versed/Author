@@ -1,12 +1,14 @@
 'use strict';
 
-angular.module('versed', [
+var app = angular.module('versed', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
-])
-  .config(function ($routeProvider) {
+  'ngRoute',
+  'versed.controllers'
+]);
+
+app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',

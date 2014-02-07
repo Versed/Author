@@ -1,4 +1,7 @@
 'use strict';
 
-angular.module('versed')
-  .controller('MainCtrl', function ($scope) {});
+var controllers = angular.module('versed.controllers', []);
+
+controllers.controller('MainCtrl', function ($scope) {
+  $scope.test = 'hi';
+});
