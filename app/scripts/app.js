@@ -25,7 +25,8 @@ app.config(function ($routeProvider) {
       controller: 'LessonCtrl'
     })
     .when('/challenge:/:id', {
-      templateUrl: 'views/challenge.html'
+      templateUrl: 'views/challenge.html',
+      controller: 'BookCtrl'
     })
     .otherwise({
       redirectTo: '/'
