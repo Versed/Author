@@ -1,10 +1,7 @@
 'use strict';
 
-angular.module('versedApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+var controllers = angular.module('versed.controllers', []);
+
+controllers.controller('MainCtrl', function ($scope) {
+  $scope.test = 'hi';
+});
