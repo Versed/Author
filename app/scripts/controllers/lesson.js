@@ -3,5 +3,22 @@
 var controllers = angular.module('versed.controllers', []);
 
 controllers.controller('LessonCtrl', function ($scope) {
-  $scope.lesson = 'Lesson1';
+  $scope.lessons = [
+    {
+      title: 'intro',
+      difficulty: 'beginner'
+    },
+    {
+      title: 'alphabet one',
+      difficulty: 'beginner'
+    },
+    {
+      title: 'alphabet two',
+      difficulty: 'beginner'
+    },
+    {
+      title: 'alphabet three',
+      difficulty: 'beginner'
+    }
+  ];
 });
