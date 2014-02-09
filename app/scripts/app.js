@@ -5,6 +5,7 @@ var app = angular.module('versed', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
+  'ui.router',
   'versed.controllers'
 ]);
 
