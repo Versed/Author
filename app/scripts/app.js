@@ -1,38 +1,35 @@
 'use strict';
 
-angular.module('versed', [
+var app = angular.module('versed', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'versed.controllers'
-])
+  'versed.main',
+  'versed.books'
+]);
 
-.config(function ($stateProvider) {
+app.config(function ($stateProvider) {
   $stateProvider
     .state('main', {
       url: '/home',
       templateUrl: 'views/main.html',
       controller: 'MainCtrl'
     })
-    .state('books', {
+    .state('main.books', {
       url: '/books',
-      templateUrl: 'views/books.html'
+      templateUrl: 'views/books.html',
+      controller: 'BookCtrl'
     })
     .state('profile', {
       url: '/profile',
       templateUrl: 'views/profile.html'
     })
     .state('main.lessons', {
-      url: '/lesson/:id',
+      url: '/lessons',
       templateUrl: 'views/lesson.html',
       controller: 'LessonCtrl',
       parent: 'main'
-    })
-    .state('main.challenge', {
-      url: '/challenge/:id',
-      templateUrl: 'views/challenge.html',
-      controller: 'BookCtrl'
     });
 
   // $urlRouterProvider.otherwise('/');
