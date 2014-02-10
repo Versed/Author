@@ -10,8 +10,8 @@ var app = angular.module('versed', [
   'versed.error'
 ]);
 
-app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
- function ($stateProvider, $urlRouterProvider, $locationProvider) {
+app.config(['$stateProvider', '$urlRouterProvider',
+ function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('main', {
       url: '/',
@@ -39,5 +39,5 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     });
 
   $urlRouterProvider.otherwise('/404');
-  $locationProvider.html5Mode(true).hashPrefix('!');
+  // $locationProvider.html5Mode(true).hashPrefix('!');
 }]);
