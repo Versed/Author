@@ -1,35 +1,39 @@
 'use strict';
 
-var app = angular.module('versed', [
+angular.module('versed', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute',
   'ui.router',
   'versed.controllers'
-]);
+])
 
-app.config(function ($routeProvider) {
-  $routeProvider
-    .when('/', {
+.config(function ($stateProvider) {
+  $stateProvider
+    .state('main', {
+      url: '/home',
       templateUrl: 'views/main.html',
       controller: 'MainCtrl'
     })
-    .when('/profile', {
+    .state('books', {
+      url: '/books',
+      templateUrl: 'views/books.html'
+    })
+    .state('profile', {
+      url: '/profile',
       templateUrl: 'views/profile.html'
     })
-    .when('/library', {
-      templateUrl: 'views/library.html'
-    })
-    .when('/lesson/:id', {
+    .state('main.lessons', {
+      url: '/lesson/:id',
       templateUrl: 'views/lesson.html',
-      controller: 'LessonCtrl'
+      controller: 'LessonCtrl',
+      parent: 'main'
     })
-    .when('/challenge:/:id', {
+    .state('main.challenge', {
+      url: '/challenge/:id',
       templateUrl: 'views/challenge.html',
       controller: 'BookCtrl'
-    })
-    .otherwise({
-      redirectTo: '/'
     });
+
+  // $urlRouterProvider.otherwise('/');
 });
