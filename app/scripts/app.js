@@ -9,7 +9,7 @@ var app = angular.module('versed', [
   'versed.books'
 ]);
 
-app.config(function ($stateProvider) {
+app.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('main', {
       url: '/home',
@@ -30,7 +30,11 @@ app.config(function ($stateProvider) {
       templateUrl: 'views/lesson.html',
       controller: 'LessonCtrl',
       parent: 'main'
+    })
+    .state('404', {
+      url: '/404',
+      templateUrl: '404.html'
     });
 
-  // $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/404');
 });
