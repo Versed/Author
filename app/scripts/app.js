@@ -6,13 +6,14 @@ var app = angular.module('versed', [
   'ngSanitize',
   'ui.router',
   'versed.main',
-  'versed.books'
+  'versed.books',
+  'versed.error'
 ]);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('main', {
-      url: '/home',
+      url: '/',
       templateUrl: 'views/main.html',
       controller: 'MainCtrl'
     })
