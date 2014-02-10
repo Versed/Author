@@ -10,7 +10,8 @@ var app = angular.module('versed', [
   'versed.error'
 ]);
 
-app.config(function ($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
+ function ($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('main', {
       url: '/',
