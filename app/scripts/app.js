@@ -4,10 +4,7 @@ var app = angular.module('versed', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ui.router',
-  'versed.main',
-  'versed.books',
-  'versed.error'
+  'ui.router'
 ]);
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -18,7 +15,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
       templateUrl: 'views/main.html',
       controller: 'MainCtrl'
     })
-    .state('main.books', {
+    .state('books', {
       url: '/books',
       templateUrl: 'views/books.html',
       controller: 'BookCtrl'
@@ -27,11 +24,10 @@ app.config(['$stateProvider', '$urlRouterProvider',
       url: '/profile',
       templateUrl: 'views/profile.html'
     })
-    .state('main.lessons', {
+    .state('lessons', {
       url: '/lessons',
       templateUrl: 'views/lesson.html',
-      controller: 'LessonCtrl',
-      parent: 'main'
+      controller: 'LessonCtrl'
     })
     .state('404', {
       url: '/404',

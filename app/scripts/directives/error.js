@@ -1,8 +1,8 @@
 'use strict';
 
-var directives = angular.module('versed.error', []);
+var directives = angular.module('versed', []);
 
-directives.directive('error', function ($rootScope) {
+directives.directive('error', ['$rootScope', function ($rootScope) {
   return {
     restrict: 'E',
     template: '<div ng-show="isError"> Error! </div>',
@@ -13,4 +13,4 @@ directives.directive('error', function ($rootScope) {
       });
     }
   };
-});
+}]);
