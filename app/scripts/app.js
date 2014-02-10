@@ -4,7 +4,12 @@ var app = angular.module('versed', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ui.router'
+  'ui.router',
+  'versed.main',
+  'versed.books',
+  'versed.lessons',
+  'versed.error',
+  'versed.bookService'
 ]);
 
 app.config(['$stateProvider', '$urlRouterProvider',

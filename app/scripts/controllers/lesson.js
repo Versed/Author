@@ -1,6 +1,6 @@
 'use strict';
 
-var controllers = angular.module('versed', []);
+var controllers = angular.module('versed.lessons', []);
 
 controllers.controller('LessonCtrl', ['$scope', function ($scope) {
   $scope.lessons = [

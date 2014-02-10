@@ -1,6 +1,6 @@
 'use strict';
 
-var services = angular.module('versed', []);
+var services = angular.module('versed.bookService', []);
 
 services.factory('Books', [function() {
   return {

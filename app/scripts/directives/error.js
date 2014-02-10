@@ -1,6 +1,6 @@
 'use strict';
 
-var directives = angular.module('versed', []);
+var directives = angular.module('versed.error', []);
 
 directives.directive('error', ['$rootScope', function ($rootScope) {
   return {
