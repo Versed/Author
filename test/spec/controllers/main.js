@@ -2,8 +2,10 @@
 
 describe('Controller: MainCtrl', function () {
 
-  // load the controller's module
-  beforeEach(module('versedApp'));
+  beforeEach(module('versed.main'));
+  beforeEach(module('ui.router', function($locationProvider) {
+    $locationProvider.html5Mode(false);
+  }));
 
   var MainCtrl,
     scope;
