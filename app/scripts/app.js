@@ -4,32 +4,41 @@ var app = angular.module('versed', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute',
   'ui.router',
-  'versed.controllers'
+  'versed.main',
+  'versed.books',
+  'versed.lessons',
+  'versed.error',
+  'versed.bookService'
 ]);
 
-app.config(function ($routeProvider) {
-  $routeProvider
-    .when('/', {
+app.config(['$stateProvider', '$urlRouterProvider',
+ function ($stateProvider, $urlRouterProvider) {
+  $stateProvider
+    .state('main', {
+      url: '/',
       templateUrl: 'views/main.html',
       controller: 'MainCtrl'
     })
-    .when('/profile', {
+    .state('books', {
+      url: '/books',
+      templateUrl: 'views/books.html',
+      controller: 'BookCtrl'
+    })
+    .state('profile', {
+      url: '/profile',
       templateUrl: 'views/profile.html'
     })
-    .when('/library', {
-      templateUrl: 'views/library.html'
-    })
-    .when('/lesson/:id', {
+    .state('lessons', {
+      url: '/lessons',
       templateUrl: 'views/lesson.html',
       controller: 'LessonCtrl'
     })
-    .when('/challenge:/:id', {
-      templateUrl: 'views/challenge.html',
-      controller: 'BookCtrl'
-    })
-    .otherwise({
-      redirectTo: '/'
+    .state('404', {
+      url: '/404',
+      templateUrl: '404.html'
     });
-});
+
+  $urlRouterProvider.otherwise('/404');
+  // $locationProvider.html5Mode(true).hashPrefix('!');
+}]);
