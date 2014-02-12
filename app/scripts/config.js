@@ -1,7 +1,9 @@
-angular.module('versed.config', []);
+'use strict';
 
-app.config(['$stateProvider', '$urlRouterProvider',
- function ($stateProvider, $urlRouterProvider) {
+var config = angular.module('versed.config', []);
+
+config.config(['$stateProvider', '$urlRouterProvider',
+  function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('main', {
       url: '/',
@@ -25,5 +27,5 @@ app.config(['$stateProvider', '$urlRouterProvider',
     });
 
   $urlRouterProvider.otherwise('/404');
-  // $locationProvider.html5Mode(true).hashPrefix('!');
+// $locationProvider.html5Mode(true).hashPrefix('!');
 }]);

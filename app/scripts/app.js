@@ -1,6 +1,7 @@
 'use strict';
+var app;
 
-var app = angular.module('versed', [
+app = angular.module('versed', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
