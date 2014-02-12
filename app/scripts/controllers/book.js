@@ -2,7 +2,7 @@
 
 var controllers = angular.module('versed.books', []);
 
-controllers.controller('BookCtrl', ['$scope', function ($scope) {
+controllers.controller('BookController', ['$scope', function ($scope) {
   $scope.books = [
     {
       title: 'Big Journey',

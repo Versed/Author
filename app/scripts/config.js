@@ -5,13 +5,11 @@ app.config(['$stateProvider', '$urlRouterProvider',
   $stateProvider
     .state('main', {
       url: '/',
-      templateUrl: 'views/main.html',
-      controller: 'MainCtrl'
+      templateUrl: 'views/main.html'
     })
     .state('books', {
       url: '/books',
       templateUrl: 'views/books.html',
-      controller: 'BookCtrl'
     })
     .state('profile', {
       url: '/profile',
@@ -20,7 +18,6 @@ app.config(['$stateProvider', '$urlRouterProvider',
     .state('lessons', {
       url: '/lessons',
       templateUrl: 'views/lesson.html',
-      controller: 'LessonCtrl'
     })
     .state('404', {
       url: '/404',
