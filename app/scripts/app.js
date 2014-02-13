@@ -9,7 +9,5 @@ app = angular.module('versed', [
   'versed.config',
   'versed.main',
   'versed.books',
-  'versed.lessons',
-  'versed.error',
-  'versed.bookService'
+  'versed.lessons'
 ]);
