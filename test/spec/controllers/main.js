@@ -37,13 +37,6 @@ describe('Controllers', function () {
     // }));
 
     it('should populate scope with list of books', function() {
-      $httpBackend.expectGET('books.json')
-        .respond([
-          {name: 'Books 1', difficulty: 'beginner'},
-          {name: 'Books 2', difficulty: 'beginner'},
-          {name: 'Books 3', difficulty: 'beginner'}
-        ]);
-
       var result = mockBooksResource.get();
       $httpBackend.flush();
       expect(result.length).toEqual(3);
