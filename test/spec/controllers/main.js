@@ -1,24 +1,36 @@
 'use strict';
 
-describe('Controller: MainController', function () {
+describe('Controllers', function () {
 
-  beforeEach(module('versed.main'));
-  beforeEach(module('ui.router', function($locationProvider) {
-    $locationProvider.html5Mode(false);
-  }));
+  beforeEach(module('versed'));
 
-  var MainController,
-    scope;
+  it('should be true', function() {
+    expect(true).toEqual(true);
+  });
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    MainController = $controller('MainController', {
-      $scope: scope
+  describe('MainController', function() {
+    var MainController, scope, Books, $save;
+
+    beforeEach(inject(function ($controller, $rootScope) {
+      scope = $rootScope.$new();
+      $save = jasmine.createSpy('$save');
+      Books = function Books() {
+        return {
+          $save: $save
+        };
+      };
+      Books.get = function get() {
+        return [
+          {name: 'Books 1', difficulty: 'beginner'},
+          {name: 'Books 2', difficulty: 'beginner'},
+          {name: 'Books 3', difficulty: 'beginner'}
+        ];
+      };
+      MainController = $controller('MainController', { $scope: scope, books: Books });
+    }));
+
+    it('should populate scope with list of books', function() {
+      expect(scope.books.length).toEqual(3);
     });
-  }));
-
-  it('should pass test', function () {
-    expect(true).toBe(true);
   });
 });
