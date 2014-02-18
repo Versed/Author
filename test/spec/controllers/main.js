@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Controllers', function () {
-  var mockBooksResource, $httpBackend;
+  var MainController;
   beforeEach(module('versed'));
 
   it('should be true', function() {
@@ -9,36 +9,28 @@ describe('Controllers', function () {
   });
 
   describe('MainController', function() {
-    // var MainController, scope, Books, $save;
+    var scope, Books, $save;
 
-    beforeEach(function() {
-      angular.mock.inject(function($injector) {
-        $httpBackend = $injector.get($httpBackend);
-        mockBooksResource = $injector.get('Books');
-      });
-    });
-
-    // beforeEach(inject(function ($controller, $rootScope) {
-    //   scope = $rootScope.$new();
-    //   $save = jasmine.createSpy('$save');
-    //   Books = function Books() {
-    //     return {
-    //       $save: $save
-    //     };
-    //   };
-    //   Books.get = function get() {
-    //     return [
-    //       {name: 'Books 1', difficulty: 'beginner'},
-    //       {name: 'Books 2', difficulty: 'beginner'},
-    //       {name: 'Books 3', difficulty: 'beginner'}
-    //     ];
-    //   };
-    //   MainController = $controller('MainController', { $scope: scope, books: Books });
-    // }));
+    beforeEach(inject(function ($controller, $rootScope) {
+      scope = $rootScope.$new();
+      $save = jasmine.createSpy('$save');
+      Books = function Books() {
+        return {
+          $save: $save
+        };
+      };
+      Books.get = function get() {
+        return [
+          {name: 'Books 1', difficulty: 'beginner'},
+          {name: 'Books 2', difficulty: 'beginner'},
+          {name: 'Books 3', difficulty: 'beginner'}
+        ];
+      };
+      MainController = $controller('MainController', { $scope: scope, books: Books.get() });
+    }));
 
     it('should populate scope with list of books', function() {
-      var result = mockBooksResource.get();
-      $httpBackend.flush();
+      var result = MainController.books;
       expect(result.length).toEqual(3);
     });
   });
