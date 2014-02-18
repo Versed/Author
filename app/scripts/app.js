@@ -10,5 +10,6 @@ app = angular.module('versed', [
   'versed.main',
   'versed.books',
   'versed.lessons',
-  'versed.error'
+  'versed.error',
+  'versed.profile'
 ]);
