@@ -1,7 +1,7 @@
 'use strict';
 
-var controllers = angular.module('versed.main', []);
+var controllers = angular.module('versed.main', ['versed.services.books']);
 
-controllers.controller('MainCtrl', ['$scope', 'Books', function ($scope, Books) {
-  $scope.books = Books.get();
+controllers.controller('MainController', ['$scope', 'Books', function ($scope, Books) {
+  $scope.books = Books.query();
 }]);

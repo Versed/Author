@@ -2,7 +2,7 @@
 
 var controllers = angular.module('versed.lessons', []);
 
-controllers.controller('LessonCtrl', ['$scope', function ($scope) {
+controllers.controller('LessonController', ['$scope', function ($scope) {
   $scope.lessons = [
     {
       title: 'intro',

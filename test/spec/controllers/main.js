@@ -1,22 +1,35 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controllers', function () {
+  beforeEach(module('versed'));
 
-  // load the controller's module
-  beforeEach(module('versedApp'));
+  var MainController, scope, $save, Books;
 
-  var MainCtrl,
-    scope;
+  describe('MainController', function() {
+    beforeEach(inject(function ($controller, $rootScope) {
+      scope = $rootScope.$new();
+      $save = jasmine.createSpy('$save');
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
-      $scope: scope
+      Books = function Books() {
+        return {
+          $save: $save
+        };
+      };
+      Books.query = function query() {
+        return [
+          {name: 'Books 1', difficulty: 'beginner'},
+          {name: 'Books 2', difficulty: 'beginner'},
+          {name: 'Books 3', difficulty: 'beginner'}
+        ];
+      };
+      MainController = $controller('MainController', {
+        $scope: scope,
+        Books: Books
+      });
+    }));
+
+    it('should populate scope with list of books', function() {
+      expect(scope.books.length).toBe(3);
     });
-  }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
   });
 });
