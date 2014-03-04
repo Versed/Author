@@ -1,5 +1,6 @@
 // Karma configuration
 // http://karma-runner.github.io/0.10/config/configuration-file.html
+'use strict';
 
 module.exports = function(config) {
   config.set({
@@ -17,6 +18,7 @@ module.exports = function(config) {
       'app/bower_components/angular-cookies/angular-cookies.js',
       'app/bower_components/angular-sanitize/angular-sanitize.js',
       'app/bower_components/angular-ui-router/release/angular-ui-router.js',
+      './node_modules/ng-midway-tester/src/ngMidwayTester.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       // 'test/mock/**/*.js',
