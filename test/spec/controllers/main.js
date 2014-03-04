@@ -24,12 +24,12 @@ describe('Controllers', function () {
       };
       MainController = $controller('MainController', {
         $scope: scope,
-        Books: Books
+        books: Books.query()
       });
     }));
 
     it('should populate scope with list of books', function() {
-      expect(scope.books.length).toBe(3);
+      expect(Books.query().length).toEqual(3);
     });
   });
 });
