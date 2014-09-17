@@ -1,0 +1,11 @@
+{
+  "name": "Versed",
+  "version": "0.0.0",
+  "authors": [
+    "Nathan Kluth <nlkluth@gmail.com>"
+  ],
+  "dependencies": {
+    "platform": "Polymer/platform#~0.4.0",
+    "polymer": "Polymer/polymer#~0.4.0"
+  }
+}
