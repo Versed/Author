@@ -2,10 +2,12 @@
 <link rel="import" href="./versed-lesson.html">
 
 <polymer-element name="versed-lesson-list">
-  <template repeat="{{lesson in lessons}}">
-    <versed-lesson>
-      <h2>{{lesson.title}}</h2>
-    </versed-lesson>
+  <template>
+    <template repeat="{{lesson in lessons}}">
+      <versed-lesson>
+        <h2>{{lesson.title}}</h2>
+      </versed-lesson>
+    </template>
   </template>
 
   <script src="./scripts/versed-lesson-list.js"></script>
