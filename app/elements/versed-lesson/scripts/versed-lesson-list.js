@@ -2,6 +2,12 @@
 
 Polymer('versed-lesson-list', {
   created: function() {
-    this.lessons = ['test', 'test', 'test'];
+    this.lessons = [{
+      title: 'test'
+    }, {
+      title: 'test'
+    }, {
+      title: 'test'
+    }];
   }
 });
