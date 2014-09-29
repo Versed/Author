@@ -2,6 +2,11 @@
 
 <polymer-element name="versed-menu">
   <template>
+    <template repeat="activity in recentActivity">
+      <versed-activity>
+        {{type | filterType}}
+      </versed-activity>
+    </template>
   </template>
   <script>
     Polymer({});
