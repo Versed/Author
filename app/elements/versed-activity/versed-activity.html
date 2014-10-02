@@ -2,13 +2,15 @@
 
 <polymer-element name="versed-activity">
   <template>
-    <core-icon-button
-      id="favicon"
-      icon="{{activityType}}">
-    </core-icon-button>
+    <a href="{{url}}">
+      <core-icon-button
+        id="favicon"
+        icon="{{activityType}}">
+      </core-icon-button>
 
-    <content select="h2"></content>
-    <content></content>
+      <content select="h2"></content>
+      <content></content>
+    </a>
   </template>
   <script src="./scripts/versed-activity.js"></script>
 </polymer-element>
