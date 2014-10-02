@@ -4,7 +4,10 @@
   <template>
     <template repeat="activity in recentActivity">
       <versed-activity>
-        {{type | filterType}}
+        <h2>{{activity.title}}</h2>
+        <div>
+          {{activity.description}}
+        </div>
       </versed-activity>
     </template>
   </template>
