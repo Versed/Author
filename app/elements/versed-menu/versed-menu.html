@@ -6,10 +6,8 @@
     <template repeat="{{activity in recentActivity}}">
       <versed-activity url="{{activity.url}}">
         <h2>{{activity.title}}</h2>
-        <div>
-          {{activity.description}}
-        </div>
-        <div class="date">{{activity.date}}</div>
+        <div>{{activity.description}}</div>
+        <time is="relative-time" datetime="{{activity.date}}"></time>
       </versed-activity>
     </template>
   </template>
