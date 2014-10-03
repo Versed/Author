@@ -2,7 +2,7 @@
 
 <polymer-element name="versed-menu">
   <template>
-    <template repeat="activity in recentActivity">
+    <template repeat="{{activity in recentActivity}}">
       <versed-activity>
         <h2>{{activity.title}}</h2>
         <div>
