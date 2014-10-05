@@ -3,11 +3,16 @@
 
 <polymer-element name="versed-lesson-list">
   <template>
-    <template repeat="{{lesson in lessons}}">
-      <versed-lesson>
-        <h2>{{lesson.title}}</h2>
-      </versed-lesson>
-    </template>
+
+    <core-animated-pages>
+
+      <template repeat="{{lesson in lessons}}">
+        <versed-lesson>
+          <h2>{{lesson.title}}</h2>
+        </versed-lesson>
+      </template>
+
+    </core-animated-pages>
   </template>
 
   <script src="./scripts/versed-lesson-list.js"></script>
