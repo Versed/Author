@@ -1,5 +1,6 @@
 <link rel="import" href="../../components/polymer/polymer.html">
 <link rel="import" href="../versed-components/count-scroll.html">
+<link rel="import" href="../versed-components/mini-graph.html">
 
 <polymer-element name="versed-action-menu" noscript>
   <template>
@@ -11,9 +12,10 @@
     <versed-rating value="{{difficulty}}"></versed-rating>
     <count-scroll value="{{points}}" delay="2000">points</count-scroll>
 
-    <mini-graph type="circle" max="100"
-      value="{{popularity}}"
-      color="slategray" delay="3">
+    <mini-graph max="140" delay="500"
+      transition="stroke-dashoffset 1.5s ease-in-out"
+      tooltip="Difficulty">
+      <h2>easy</h2>
     </mini-graph>
   </template>
 </polymer-element>

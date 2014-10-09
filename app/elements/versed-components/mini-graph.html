@@ -1,0 +1,79 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/core-tooltip/core-tooltip.html">
+<link href='//fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
+
+<polymer-element name="mini-graph" attributes="tooltip value max delay transition">
+  <template>
+    <style>
+    :host {
+      font-family: 'Lato', sans-serif;
+    }
+
+    .mini-graph {
+      text-align: center;
+    }
+
+    .mini-graph path {
+      fill: pink;
+      stroke: deeppink;
+      stroke-dashoffset: 100;
+      stroke-dasharray: 100 100;
+      stroke-width: 6;
+      pointer-events: none;
+      -webkit-transition: stroke-dashoffset 0.3s;
+              transition: stroke-dashoffset 0.3s;
+    }
+
+    h2 {
+      margin: 0;
+      display: inline-block;
+      position: relative;
+      top: -25px;
+      left: -4.3%;
+    }
+
+    </style>
+
+    <core-tooltip label="{{tooltip}}" position="bottom">
+      <div class="mini-graph">
+        <svg width="70" height="70">
+          <path id="path" d="m2.619049,35c0,-17.890028 14.490923,-32.38095 32.380951,-32.38095c17.890026,0 32.380951,14.490922 32.380951,32.38095c0,17.89003 -14.490925,32.380951 -32.380951,32.380951c-17.890028,0 -32.380951,-14.490921 -32.380951,-32.380951z"/>
+        </svg>
+        <content select="h2"></content>
+        <content class="label"></content>
+      </div>
+    </core-tooltip>
+  </template>
+
+  <script>
+  Polymer({
+    tooltip: null,
+    value: null,
+    delay: 0,
+    max: 200,
+    transition: null,
+
+    ready: function() {
+      this.draw();
+    },
+
+    draw: function() {
+      this.length = this.$.path.getTotalLength();
+      this.$.path.style.strokeDashoffset = this.length - this.value;
+      this.$.path.style.strokeDasharray = this.length + ' ' + this.length;
+
+      if (this.transition) {
+        this.$.path.style.transition = this.$.path.style.WebkitTransition = this.transition;
+      }
+
+      setTimeout(function() {
+        this.setValue();
+      }.bind(this), this.delay);
+    },
+
+    setValue: function() {
+      this.$.path.style.strokeDashoffset = (this.length - this.max);
+    }
+  });
+  </script>
+</polymer-element>
