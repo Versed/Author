@@ -1,0 +1,54 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link href='//fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
+
+<polymer-element name="count-scroll" attributes="value delay">
+  <template>
+    <style>
+    :host {
+      font-family: 'Lato', sans-serif;
+      font-size: 1.2rem;
+    }
+
+    #counter {
+      display: inline;
+    }
+    </style>
+
+    <div id="counter">{{value}}</div>
+    <content></content>
+  </template>
+  <script>
+  Polymer({
+    value: null,
+    delay: 0,
+
+    ready: function() {
+      this.setUp();
+    },
+
+    setUp: function() {
+      if (this.value) {
+        this.endValue = this.value;
+        this.value = Math.floor(this.value * 0.97);
+      }
+
+      setTimeout(function() {
+        this.runAnimation();
+      }.bind(this), this.delay);
+    },
+
+    runAnimation: function() {
+      this.incrementTimer();
+    },
+
+    incrementTimer: function() {
+      setTimeout(function() {
+        this.value++;
+        if (this.value < this.endValue) {
+          this.incrementTimer();
+        }
+      }.bind(this), 1)
+    }
+  });
+  </script>
+</polymer-element>
