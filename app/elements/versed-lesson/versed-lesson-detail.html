@@ -1,10 +1,35 @@
 <link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/polymer-ui-card/polymer-ui-card.html">
 
-<polymer-element name="versed-lesson-detail" noscript>
+
+<polymer-element name="versed-lesson-detail">
   <template>
-    <content select="h2"></content>
-    <content></content>
-    <versed-action-menu></versed-action-menu>
-    <canvas></canvas>
+    <style>
+    #canvas {
+      width: 30%;
+      height: 30%;
+      max-height: 400px;
+      max-width: 400px;
+      display: inline-block;
+    }
+    </style>
+
+    <polymer-ui-card layout vertical>
+      <content select="h2"></content>
+      <content></content>
+      <versed-action-menu></versed-action-menu>
+      <canvas id="lesson"></canvas>
+    </polymer-ui-card>
   </template>
+
+  <script>
+  Polymer({
+    ready: function() {
+      var canvas = this.$.lesson;
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#ff0000';
+      ctx.fillRect(0, 0, 150, 75);
+    }
+  });
+  </script>
 </polymer-element>
