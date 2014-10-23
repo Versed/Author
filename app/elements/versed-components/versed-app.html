@@ -7,16 +7,32 @@
 
 <link rel="import" href="../versed-menu/versed-menu.html">
 <link rel="import" href="../versed-lesson/versed-lesson-list.html">
-<polymer-element name="versed-app" vertical layout noscript>
+<polymer-element name="versed-app" vertical layout>
   <template>
     <core-toolbar>
       <core-icon-button icon="menu"></core-icon-button>
     </core-toolbar>
 
-    <core-animated-pages>
-      <versed-menu></versed-menu>
-      <versed-lesson-list></versed-lesson-list>
+    <versed-menu></versed-menu>
+
+    <core-animated-pages selected="{{selected}}" transitions="cross-fade slide-up" flex auto>
+      <div name="splash">
+        <span fit class="splash" cross-fade</span>
+      </div>
+
+      <versed-lesson-list name="home"></versed-lesson-list>
+      <versed-lesson name="detail"></versed-lesson>
+      <versed-profile name="profile"></versed-profile>
+      <div name="new"></div>
     </core-animated-pages>
+
+    <versed-toolbar></versed-toolbar>
   </template>
+
+  <script>
+    Polymer('versed-app', {
+      selected: 'splash'
+    });
+  </script>
 </polymer-element>
 
