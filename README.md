@@ -1,4 +1,3 @@
-Versed
-======
+## Author
 
-Versed Frontend
+Create content for Versed.
