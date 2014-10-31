@@ -4,6 +4,8 @@
   "devDependencies": {},
   "dependencies": {
     "ampersand-router": "^1.0.6",
-    "vulcanize": "^0.5.0"
+    "vulcanize": "^0.5.0",
+    "hapi": "^7.2.0",
+    "getconfig": "^0.3.0"
   }
 }
